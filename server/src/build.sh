@@ -134,6 +134,7 @@ build() {
 
 	cd ../
 
+
     mkdir -p ../run/login_server
     mkdir -p ../run/route_server
     mkdir -p ../run/msg_server
@@ -142,6 +143,15 @@ build() {
     mkdir -p ../run/push_server
     mkdir -p ../run/http_msg_server
     mkdir -p ../run/db_proxy_server
+
+    cp bin/login_server login_server/login_server
+    cp bin/route_server route_server/route_server
+    cp bin/msg_server msg_server/msg_server 
+    cp bin/file_server file_server/file_server
+    cp bin/msfs msfs/msfs
+    cp bin/http_msg_server http_msg_server/http_msg_server
+    cp bin/push_server push_server/push_server
+    cp bin/db_proxy_server db_proxy_server/db_proxy_server
 
 	#copy executables to run/ dir
 	cp login_server/login_server ../run/login_server/
@@ -167,6 +177,7 @@ build() {
 	if [ -e "$build_name" ]; then
 		rm $build_name
 	fi
+    rm -rf $build_version
     mkdir -p ../$build_version
     mkdir -p ../$build_version/login_server
     mkdir -p ../$build_version/route_server
@@ -212,8 +223,6 @@ build() {
 
     cd ../
     tar zcvf    $build_name $build_version
-
-    rm -rf $build_version
 }
 
 clean() {
