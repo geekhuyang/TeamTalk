@@ -510,7 +510,7 @@ case $1 in
 		get_cur_dir
 		check_all
 		;;
-	install)
+	install-all)
 		print_hello
 		check_user
 		check_os
@@ -518,6 +518,9 @@ case $1 in
 		check_all
 		build_all
 		;;
+	install)
+	 build_$2
+	;;
 	*)
 		print_help
 		;;
